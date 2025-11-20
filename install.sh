@@ -84,6 +84,20 @@ ln -sf "$DOTFILES_DIR/scripts/quick-note" "$HOME/.local/bin/quick-note"
 chmod +x "$HOME/.local/bin/sys-cleanup"
 chmod +x "$HOME/.local/bin/quick-note"
 
+# Install gitleaks and pre-commit hook
+echo "🛡️  Setting up gitleaks secret scanning..."
+if ! command -v gitleaks &> /dev/null; then
+    echo "  Installing gitleaks..."
+    yay -S --noconfirm gitleaks
+else
+    echo "  ✓ Gitleaks already installed"
+fi
+
+echo "  Installing pre-commit hook..."
+mkdir -p "$DOTFILES_DIR/.git/hooks"
+cp "$DOTFILES_DIR/hooks/pre-commit" "$DOTFILES_DIR/.git/hooks/pre-commit"
+chmod +x "$DOTFILES_DIR/.git/hooks/pre-commit"
+
 # Install documentation
 echo "📚 Installing documentation..."
 mkdir -p "$HOME/faelight-forest-docs"

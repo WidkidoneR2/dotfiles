@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# 🛡️ Gitleaks Pre-commit Hook - Faelight Forest
+
+echo "🔍 Scanning for secrets with Gitleaks..."
+
+# Run gitleaks on staged files with config
+cd "$(git rev-parse --show-toplevel)"
+gitleaks protect --staged -c .gitleaks.toml --redact -v
+
+GITLEAKS_EXIT=$?
+
+if [ $GITLEAKS_EXIT -eq 1 ]; then
+    echo ""
+    echo "❌ GITLEAKS DETECTED SECRETS!"
+    echo "⚠️  Commit blocked to protect you!"
+    echo ""
+    echo "Review the findings above and remove the secrets."
+    echo ""
+    echo "To bypass (NOT RECOMMENDED):"
+    echo "  git commit --no-verify"
+    echo ""
+    exit 1
+fi
+
+echo "✅ No secrets detected - commit proceeding!"
+exit 0
