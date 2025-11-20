@@ -185,6 +185,8 @@ alias nkitty='nvim ~/.config/kitty/kitty.conf'
 alias lazyvim-update='nvim --headless "+Lazy! sync" +qa'
 alias lazyvim-clean='nvim --headless "+Lazy! clean" +qa'
 
+# Yazi file manager
+alias y='yazi'
 # ═══════════════════════════════════════════════════════════
 # 🔍 MODERN CLI TOOLS
 # ═══════════════════════════════════════════════════════════
