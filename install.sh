@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+# ═══════════════════════════════════════════════════════════
+# 🌲 Faelight Forest Dotfiles Installation Script
+# Installs all configs with proper symlinks
+# ═══════════════════════════════════════════════════════════
+
+set -e
+
+echo "╔══════════════════════════════════════════════════════════╗"
+echo "║   🌲 FAELIGHT FOREST DOTFILES INSTALLATION             ║"
+echo "╚══════════════════════════════════════════════════════════╝"
+echo ""
+
+DOTFILES_DIR="$HOME/dotfiles"
+
+# Check if dotfiles directory exists
+if [ ! -d "$DOTFILES_DIR" ]; then
+    echo "❌ Error: Dotfiles directory not found at $DOTFILES_DIR"
+    exit 1
+fi
+
+# Backup existing configs
+echo "📦 Backing up existing configs..."
+BACKUP_DIR="$HOME/.config_backup_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$BACKUP_DIR"
+
+# Backup function
+backup_if_exists() {
+    if [ -e "$1" ]; then
+        echo "  Backing up: $1"
+        cp -r "$1" "$BACKUP_DIR/"
+    fi
+}
+
+# Backup existing configs
+backup_if_exists "$HOME/.config/fish"
+backup_if_exists "$HOME/.config/hypr"
+backup_if_exists "$HOME/.config/waybar"
+backup_if_exists "$HOME/.config/kitty"
+backup_if_exists "$HOME/.config/nvim"
+
+echo "✅ Backups saved to: $BACKUP_DIR"
+echo ""
+
+# Install Fish config
+echo "🐠 Installing Fish Shell config..."
+mkdir -p "$HOME/.config/fish"
+ln -sf "$DOTFILES_DIR/fish/config.fish" "$HOME/.config/fish/config.fish"
+ln -sf "$DOTFILES_DIR/fish/functions" "$HOME/.config/fish/functions"
+
+# Install Hyprland configs
+echo "🖥️  Installing Hyprland configs..."
+mkdir -p "$HOME/.config/hypr"
+ln -sf "$DOTFILES_DIR/hypr/"*.conf "$HOME/.config/hypr/"
+
+# Install Waybar configs
+echo "📊 Installing Waybar configs..."
+mkdir -p "$HOME/.config/waybar"
+ln -sf "$DOTFILES_DIR/waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc"
+ln -sf "$DOTFILES_DIR/waybar/style.css" "$HOME/.config/waybar/style.css"
+
+# Install Kitty config
+echo "🐱 Installing Kitty config..."
+mkdir -p "$HOME/.config/kitty"
+ln -sf "$DOTFILES_DIR/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
+# Install LazyVim configs
+echo "📝 Installing LazyVim configs..."
+mkdir -p "$HOME/.config/nvim"
+cp -r "$DOTFILES_DIR/nvim/lua" "$HOME/.config/nvim/"
+
+# Install scripts
+echo "🔧 Installing scripts..."
+mkdir -p "$HOME/.local/bin"
+ln -sf "$DOTFILES_DIR/scripts/sys-cleanup" "$HOME/.local/bin/sys-cleanup"
+ln -sf "$DOTFILES_DIR/scripts/quick-note" "$HOME/.local/bin/quick-note"
+chmod +x "$HOME/.local/bin/sys-cleanup"
+chmod +x "$HOME/.local/bin/quick-note"
+
+# Install documentation
+echo "📚 Installing documentation..."
+mkdir -p "$HOME/faelight-forest-docs"
+cp "$DOTFILES_DIR/docs/COMPLETE_GUIDE.md" "$HOME/faelight-forest-docs/"
+
+echo ""
+echo "╔══════════════════════════════════════════════════════════╗"
+echo "║   ✅ INSTALLATION COMPLETE!                            ║"
+echo "╚══════════════════════════════════════════════════════════╝"
+echo ""
+echo "🌲 Faelight Forest dotfiles installed successfully!"
+echo ""
+echo "Next steps:"
+echo "  1. Reload Fish: exec fish"
+echo "  2. Reload Hyprland: hyprctl reload"
+echo "  3. Restart Waybar: killall waybar && waybar &"
+echo ""

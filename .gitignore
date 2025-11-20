@@ -1,0 +1,11 @@
+# Ignore sensitive files
+**/secrets.conf
+**/tokens
+**/*.log
+
+# Ignore nvim plugin cache
+nvim/.lazy/
+
+# Backup files
+*.backup
+*~
