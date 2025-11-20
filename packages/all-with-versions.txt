@@ -39,6 +39,7 @@ bluez 5.84-2
 bluez-libs 5.84-2
 bluez-tools 0.2.0-6
 boost-libs 1.89.0-3
+botan 3.10.0-1
 brave-bin 1:1.84.141-1
 breeze-icons 6.20.0-1
 brightnessctl 0.5.1-3
@@ -124,7 +125,7 @@ fcitx5 5.1.16-1
 fcitx5-gtk 5.1.4-2
 fcitx5-qt 5.1.11-2
 fd 10.3.0-1
-ffmpeg 2:8.0-3
+ffmpeg 2:8.0.1-1
 ffmpegthumbnailer 2.2.3-4
 fftw 3.3.10-7
 file 5.46-5
@@ -285,6 +286,7 @@ kcoreaddons 6.20.0-1
 kcrash 6.20.0-1
 kdbusaddons 6.20.0-1
 kdenlive 25.08.3-3
+keepassxc 2.7.10-5
 keyutils 1.6.3-3
 kfilemetadata 6.20.0-1
 kglobalaccel 6.20.0-1
@@ -673,6 +675,7 @@ patch 2.8-1
 pavucontrol 1:6.2-1
 pciutils 3.14.0-1
 pcre2 10.47-1
+pcsclite 2.4.0-3
 perl 5.42.0-1
 perl-error 0.17030-2
 perl-mailtools 2.22-2
@@ -731,6 +734,7 @@ qoi r350.4461cc3-1
 qpdf 12.2.0-1
 qqc2-desktop-style 6.20.0-1
 qrcodegencpp-cmake 1.8.0-4
+qrencode 4.1.1-4
 qt5-base 5.15.18+kde+r109-2
 qt5-declarative 5.15.18+kde+r22-1
 qt5-svg 5.15.18+kde+r5-1
