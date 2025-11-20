@@ -330,6 +330,9 @@ alias faedocs='cd ~/faelight-forest-docs && ll'
 # Date management
 alias update-dates='~/.local/bin/update-dates'
 
+# Security audit
+alias audit-secrets='cd ~/dotfiles && echo "🔍 Scanning for secrets..." && grep -r "password\|api_key\|secret.*=\|token.*=" . --exclude-dir=.git --exclude=.gitignore -i | grep -v "Binary" || echo "✅ No secrets found!"'
+
 # ═══════════════════════════════════════════════════════════
 # 🎨 FISH SHELL COLORS (Faelight Forest Theme)
 # ═══════════════════════════════════════════════════════════
