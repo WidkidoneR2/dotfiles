@@ -304,6 +304,13 @@ alias dotpush='cd ~/dotfiles && git add -A && git commit -m "Update dotfiles $(d
 alias dotpull='cd ~/dotfiles && git pull && ./install.sh'
 alias dotstatus='cd ~/dotfiles && git status'
 
+# Faelight Forest Blueprint
+alias safe-update='~/.local/bin/safe-update'
+alias save-packages='~/.local/bin/save-packages'
+alias auto-sync='~/.local/bin/auto-sync'
+alias snapshots='sudo snapper -c root list'
+alias snapshot='sudo snapper -c root create --description'
+
 # Quick reference sections
 alias keys='bat ~/faelight-forest-docs/COMPLETE_GUIDE.md | grep -A 100 "HYPRLAND KEYBINDINGS REFERENCE"'
 alias fishhelp='bat ~/faelight-forest-docs/COMPLETE_GUIDE.md | grep -A 200 "FISH SHELL COMPLETE GUIDE"'
