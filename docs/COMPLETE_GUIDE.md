@@ -2,7 +2,7 @@
 
 **Everything you need to know in one place**
 
-Version 1.0 | Last Updated: November 2024
+Version 1.0 | Last Updated: November 2025
 
 ---
 

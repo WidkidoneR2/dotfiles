@@ -248,4 +248,4 @@ MIT License - Feel free to use and modify!
 
 **🌲 Enjoy your Faelight Forest setup!**
 
-*Last updated: November 2024*
+*Last updated: November 2025*

@@ -297,6 +297,13 @@ alias guide='bat ~/faelight-forest-docs/COMPLETE_GUIDE.md'
 alias faelight='bat ~/faelight-forest-docs/COMPLETE_GUIDE.md'
 alias vguide='nvim ~/faelight-forest-docs/COMPLETE_GUIDE.md'
 
+# Dotfiles management
+alias dotfiles='cd ~/dotfiles'
+alias dotbackup='cd ~/dotfiles && ./backup.sh'
+alias dotpush='cd ~/dotfiles && git add -A && git commit -m "Update dotfiles $(date +%Y-%m-%d)" && git push'
+alias dotpull='cd ~/dotfiles && git pull && ./install.sh'
+alias dotstatus='cd ~/dotfiles && git status'
+
 # Quick reference sections
 alias keys='bat ~/faelight-forest-docs/COMPLETE_GUIDE.md | grep -A 100 "HYPRLAND KEYBINDINGS REFERENCE"'
 alias fishhelp='bat ~/faelight-forest-docs/COMPLETE_GUIDE.md | grep -A 200 "FISH SHELL COMPLETE GUIDE"'
@@ -345,14 +352,16 @@ set -g fish_pager_color_description 557d68
 if status is-interactive
     # Show fastfetch on new shell
     fastfetch
-    
+
     # Optional: Custom greeting
     echo ""
     set_color -o 5bb7a5
     echo "🌲 Welcome to Faelight Forest!"
     set_color normal
-    echo ""
+    echo "This is my Happy Place"
 end
+
+set -g fish_greeting ""
 
 # ═══════════════════════════════════════════════════════════
 # 🌲 END OF FAELIGHT FOREST CONFIGURATION
