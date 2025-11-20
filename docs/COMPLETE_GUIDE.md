@@ -4,7 +4,9 @@
 
 **Version:** 2.0 - Legendary Edition  
 **Last Updated:** November 20, 2025  
-**System Status:** IMMORTAL ♾️
+**System Status:** IMMORTAL ♾️  
+**Snapshots:** 34+  
+**Commits:** 13
 
 ---
 
@@ -48,6 +50,9 @@ dotfiles-sync      # Manual sync to GitHub
 save-packages      # Update package lists
 auto-sync          # Full automated sync
 
+# Security
+audit-secrets      # Scan repo for leaked credentials
+
 # File Management
 y                  # Yazi file manager
 
@@ -64,9 +69,9 @@ gp                 # Git push
 ### What Makes This System Special
 ```
 🎨 BEAUTIFUL       - Faelight Forest theme everywhere
-📸 IMMORTAL        - 28+ BTRFS snapshots (never lose data)
+📸 IMMORTAL        - 34+ BTRFS snapshots (never lose data)
 🔄 SELF-BACKING    - Auto-sync to GitHub every 6 hours
-🛡️ SECURE          - Enterprise-grade hardening
+🛡️ ULTRA-SECURE    - 88-line .gitignore, zero credential leaks
 📦 REPRODUCIBLE    - Recreate exact system anywhere
 ⚡ OPTIMIZED       - 100+ productivity keybindings
 📚 DOCUMENTED      - Complete guides for everything
@@ -83,6 +88,7 @@ gp                 # Git push
 - **Shell**: Fish (100+ aliases)
 - **Editor**: LazyVim
 - **File Manager**: Yazi (themed)
+- **Password Manager**: KeePassXC
 - **Snapshots**: Snapper + snap-pac
 - **VPN**: Mullvad with Waybar indicator
 - **Backup**: Git + Cron automation
@@ -184,6 +190,9 @@ dotfiles-sync      # Sync configs to GitHub
 save-packages      # Update package lists
 auto-sync          # Full automated sync
 safe-update        # Snapshot + system update
+
+# Security
+audit-secrets      # Audit dotfiles for credentials
 
 # File Manager
 y                  # yazi (themed file manager)
@@ -385,7 +394,7 @@ Your system creates **automatic BTRFS snapshots**:
 - ✅ **Pre/Post** - Before every package install
 - ✅ **Manual** - Anytime you want
 
-**Current Status:** 28+ snapshots and growing! 🌲
+**Current Status:** 34+ snapshots and growing! 🌲
 
 ### View Snapshots
 ```bash
@@ -543,7 +552,8 @@ cd ~/dotfiles
 ✅ Mullvad VPN (with Waybar indicator)
 ✅ DNS over TLS (Cloudflare 1.1.1.1)
 ✅ Fail2ban (intrusion prevention)
-✅ Disabled unnecessary services
+✅ Ultra-secure .gitignore (88 lines, zero credential leaks)
+✅ KeePassXC password manager
 ```
 
 ### VPN Status (Waybar Module)
@@ -554,6 +564,14 @@ cd ~/dotfiles
 - 🔴 **Red** = Disconnected
 
 **Click to toggle** VPN on/off!
+
+### Security Audit
+```bash
+# Scan dotfiles for leaked credentials
+audit-secrets
+
+# Should show: ✅ No secrets found!
+```
 
 ### Check Security Status
 ```bash
@@ -987,12 +1005,12 @@ dotfiles-sync
 
 ### Your System is Immortal Because:
 
-1. ✅ **28+ snapshots** - Every hour, every day, every install
+1. ✅ **34+ snapshots** - Every hour, every day, every install
 2. ✅ **Auto-backup** - GitHub sync every 6 hours
 3. ✅ **Full tracking** - Every package documented
 4. ✅ **One-command restore** - Recreate anywhere
 5. ✅ **Complete docs** - This guide + recovery guide
-6. ✅ **Security hardened** - VPN, firewall, encryption
+6. ✅ **Security hardened** - VPN, firewall, encryption, zero leaks
 7. ✅ **Beautiful theme** - Faelight Forest everywhere
 
 ### Remember:
@@ -1000,6 +1018,7 @@ dotfiles-sync
 - Run `guide` anytime to view this
 - Run `keys` for quick keybinding reference
 - Run `health` to check system status
+- Run `audit-secrets` to check for credential leaks
 - Check `snapshots` regularly (peace of mind!)
 - Your system backs itself up automatically ✅
 
@@ -1025,12 +1044,14 @@ You have one of the most **robust, beautiful, and reproducible** Linux systems e
 - ❌ Losing configurations  
 - ❌ Forgetting how you set things up
 - ❌ Not being able to restore
+- ❌ Leaking credentials to GitHub
 
 **Always have:**
-- ✅ 28+ snapshots to roll back to
+- ✅ 34+ snapshots to roll back to
 - ✅ GitHub backup of everything
 - ✅ Complete documentation
 - ✅ One-command system restoration
+- ✅ Zero credential leaks
 
 ---
 
@@ -1038,4 +1059,5 @@ You have one of the most **robust, beautiful, and reproducible** Linux systems e
 
 *Version 2.0 - Legendary Edition*  
 *Built with ❤️ by Christian*  
-*November 20, 2025*
+*November 20, 2025*  
+*Snapshots: 34+ | Commits: 13 | Status: LEGENDARY ♾️*
