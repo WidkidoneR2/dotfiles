@@ -330,6 +330,10 @@ alias faedocs='cd ~/faelight-forest-docs && ll'
 # Date management
 alias update-dates='~/.local/bin/update-dates'
 
+# 🛡️ Gitleaks - Secret Scanning
+alias scan-secrets='gitleaks detect --no-git -v'
+alias scan-staged='gitleaks protect --staged -v'
+
 # Security audit
 alias audit-secrets='cd ~/dotfiles && echo "🔍 Scanning for secrets..." && grep -r "password\|api_key\|secret.*=\|token.*=" . --exclude-dir=.git --exclude=.gitignore -i | grep -v "Binary" || echo "✅ No secrets found!"'
 

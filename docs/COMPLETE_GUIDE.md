@@ -677,6 +677,27 @@ yay -Si aur_package
 └── README.md             # Documentation
 ```
 
+## 🛡️ Secret Protection with Gitleaks
+
+**Automatic secret scanning prevents accidental credential commits.**
+
+### Features
+- Pre-commit hook blocks secrets automatically
+- Scans for API keys, tokens, private keys, passwords
+- Custom patterns in `.gitleaks.toml`
+
+### Quick Commands
+```fish
+scan-secrets     # Scan current directory
+scan-staged      # Check staged git files
+```
+
+### What's Protected
+- AWS keys, GitHub tokens, API keys
+- Private keys (.pem, .key files)
+- Files matching `*secret*`, `*-secret*`, `*_secret*`
+
+The pre-commit hook runs automatically - no action needed!
 ---
 
 ## 🆘 Recovery Procedures

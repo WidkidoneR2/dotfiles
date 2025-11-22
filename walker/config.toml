@@ -1,4 +1,4 @@
-force_keyboard_focus = true                                                 # forces keyboard forcus to stay in Walker
+force_keyboard_focus = true                                                 # forces keyboard focus to stay in Walker
 selection_wrap = true                                                       # wrap list if at bottom or top
 theme = "faelight-forest"
 additional_theme_location = "~/.config/walker/themes/"
@@ -39,3 +39,4 @@ provider = "websearch"
 [[providers.prefixes]]
 prefix = "$"
 provider = "clipboard"
+
