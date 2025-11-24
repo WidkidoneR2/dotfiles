@@ -1,0 +1,181 @@
+# ============================================================
+#  🧙 YAZI — ADVANCED VIM-STYLE OPERATOR SYSTEM
+#  Operators: d/y/c + motions
+#  Motions: j/k/h/l/gg/G/^/$
+#  Macros: q ... q, @
+#  Repeat: .
+#  Ex Commands: :rename, :mkdir, :trash, :preview!
+# ============================================================
+
+[mgr]
+prepend_keymap = [
+
+  # ---------------------------------------------------------
+  #  BASIC VIM MOVEMENT
+  # ---------------------------------------------------------
+  { on = "h", run = "leave", desc = "Go up a directory" },
+  { on = "l", run = "enter", desc = "Enter directory / open file" },
+  { on = "j", run = "arrow_next", desc = "Next item" },
+  { on = "k", run = "arrow_prev", desc = "Previous item" },
+
+  { on = "gg", run = "arrow_top", desc = "Go to top" },
+  { on = "G",  run = "arrow_bottom", desc = "Go to bottom" },
+
+  { on = "H", run = "history back", desc = "History back" },
+  { on = "L", run = "history forward", desc = "History forward" },
+
+  # ---------------------------------------------------------
+  #  VISUAL MODE
+  # ---------------------------------------------------------
+  { on = "v", run = "visual_mode", desc = "Toggle visual mode" },
+  { on = "V", run = "visual_mode --line", desc = "Line-based visual mode" },
+
+
+  # =========================================================
+  #  OPERATOR SYSTEM
+  #  d  → delete
+  #  y  → yank
+  #  c  → change/rename
+  #  Combined with motions: dj, dk, dgg, dG, etc.
+  # =========================================================
+
+  # ----- DELETE OPERATOR -----
+  { on = "dd", run = "remove --force --hovered", desc = "Delete current" },
+
+  { on = "dj", run = [
+      "visual_mode",
+      "arrow_next",
+      "remove --force --selected"
+    ],
+    desc = "Delete range downward"
+  },
+
+  { on = "dk", run = [
+      "visual_mode",
+      "arrow_prev",
+      "remove --force --selected"
+    ],
+    desc = "Delete range upward"
+  },
+
+  { on = "dgg", run = [
+      "visual_mode",
+      "arrow_top",
+      "remove --force --selected"
+    ],
+    desc = "Delete to top"
+  },
+
+  { on = "dG", run = [
+      "visual_mode",
+      "arrow_bottom",
+      "remove --force --selected"
+    ],
+    desc = "Delete to bottom"
+  },
+
+
+  # ----- YANK OPERATOR -----
+  { on = "yy", run = "yank --hovered", desc = "Yank current" },
+
+  { on = "yj", run = [
+      "visual_mode",
+      "arrow_next",
+      "yank --selected"
+    ],
+    desc = "Yank range downward"
+  },
+
+  { on = "yk", run = [
+      "visual_mode",
+      "arrow_prev",
+      "yank --selected"
+    ],
+    desc = "Yank range upward"
+  },
+
+  { on = "ygg", run = [
+      "visual_mode",
+      "arrow_top",
+      "yank --selected"
+    ],
+    desc = "Yank to top"
+  },
+
+  { on = "yG", run = [
+      "visual_mode",
+      "arrow_bottom",
+      "yank --selected"
+    ],
+    desc = "Yank to bottom"
+  },
+
+
+  # ----- CHANGE/RENAME OPERATOR -----
+  { on = "cc", run = "rename --hovered", desc = "Rename current file" },
+
+  { on = "cj", run = [
+      "visual_mode",
+      "arrow_next",
+      "rename --selected"
+    ],
+    desc = "Rename range downward"
+  },
+
+  { on = "ck", run = [
+      "visual_mode",
+      "arrow_prev",
+      "rename --selected"
+    ],
+    desc = "Rename range upward"
+  },
+
+  # ---------------------------------------------------------
+  #  PASTE
+  # ---------------------------------------------------------
+  { on = "p", run = "paste", desc = "Paste" },
+
+
+  # ---------------------------------------------------------
+  #  REPEAT COMMAND (.)
+  # ---------------------------------------------------------
+  { on = ".", run = "repeat", desc = "Repeat last action" },
+
+
+  # =========================================================
+  #  MACROS SYSTEM
+  #  q  → start/stop recording
+  #  @  → play macro
+  # =========================================================
+
+  { on = "q", run = "macro_record", desc = "Start/stop macro recording" },
+  { on = "@", run = "macro_play", desc = "Play last macro" },
+
+
+  # =========================================================
+  #  EX MODE (like : commands)
+  # =========================================================
+  { on = ":", run = "input --prompt ':' --type command", desc = "Command mode" },
+
+]
+
+
+
+# ============================================================
+#  EX COMMANDS HANDLER
+# ============================================================
+[input]
+prepend_keymap = [
+
+  # Cancel input
+  { on = "<Esc>", run = "close", desc = "Cancel" },
+
+  # Multiple Ex Commands
+  { on = ":rename", run = "rename --hovered", desc = "Rename hovered" },
+  { on = ":mkdir", run = "create", desc = "Make directory" },
+  { on = ":trash", run = "remove --trash --selected", desc = "Trash selected" },
+  { on = ":preview!", run = "preview --toggle", desc = "Toggle preview" },
+  { on = ":quit", run = "quit", desc = "Quit Yazi" },
+
+]
+
