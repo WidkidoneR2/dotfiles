@@ -10,7 +10,3 @@ search_folders = ["/home/yourusername/Documents", "/home/yourusername/Projects"]
 fuzzy_matching = true       # Enable fuzzy matching for more flexible search
 case_sensitive = false      # Make the search case-insensitive
 
-[keybindings]
-activate_key = "Return"     # Activate with Enter key
-close_key = "Escape"        # Close with Escape key
-
